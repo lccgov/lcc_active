@@ -2036,11 +2036,11 @@ a.showClassFilters {
 
 /* Required to handle tab show and hide as SharePoint adding an additional div between tab content and tab panel*/
 
-div.tab-content div.tab-pane {
+div.tab-pane {
     display: none
 }
 
-div.tab-content div.tab-pane.active {
+div.tab-pane.active {
     display: block
 }
 

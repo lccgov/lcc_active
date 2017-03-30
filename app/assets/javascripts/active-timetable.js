@@ -421,7 +421,10 @@
                     promise.reject(errorthrown);
 
                 }
-                );
+                ).catch(function(e){
+                    console.log(e.message);
+                    console.log(e.stack);
+                });
             return promise.promise();
         }
 

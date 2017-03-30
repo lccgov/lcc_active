@@ -85,7 +85,7 @@
                 self.enableTabs = function () {
                     if ($(".timetableTabs")) {
                         var hideTabs = function () {
-                            var tabPanels = $("div.tab-content div.tab-pane");
+                            var tabPanels = $("div.tab-pane");
                             $(tabPanels).removeClass("active");
                         }
 
