@@ -5,6 +5,7 @@
 //= require active-behaviour
 //= require active-timetabletabs
 //= require active-initmaps
+//= require google-analytics
 
 
 
