@@ -115,7 +115,7 @@
             }
 
             //this id is the zone index for the TimeTableZone. If web part zones are added to the page be careful as this index id may need to change.
-            var timeTableZoneIndex = 0;
+            var timeTableZoneIndex = 1;
             var timeTableTabElementId = 'timetableWebPartZoneDiv';
             SP.SOD.executeOrDelayUntilScriptLoaded(function () {
                 var timeTableTabControl = new LCC.Sports.TimetableTab(timeTableZoneIndex, timeTableTabElementId);
