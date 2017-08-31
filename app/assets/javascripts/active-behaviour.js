@@ -104,7 +104,7 @@
         $('#myCarousel').carousel('pause');
     });
 
-    //expand menu focus
+    /*//expand menu focus
     $('a.utilities').click(function () {
         $(".utilitiesSection").slideToggle("active");
         $(this).toggleClass("active");
@@ -118,7 +118,7 @@
         $('#main-menu ul.root li:nth-child(1) a').addClass("firstItem");
         $('#main-menu ul.root li ul li a').removeClass("firstItem");
         $('#main-menu ul.root li a.firstItem').focus();
-    });
+    });*/
 
 
     //membership table reveal
