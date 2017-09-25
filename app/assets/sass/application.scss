@@ -14,7 +14,7 @@ $menu-link-color:#006DA5;
 //base.scss
 
 $base-background-color:#fff;
-$base-font-size:16px ;
+$base-font-size:19px ;
 $base-font-color:#333 ;
 //$base-link-color:#133E8D ;
 //$base-container-width:1500px ;
@@ -230,11 +230,11 @@ a{
     }
     &:hover,
     &:focus {
-        color: #0087CC;
+        color:lighten(#0087CC,5%);
     }
 
     &:visited {
-        color: inherit;
+        color:darken(#0087CC,5%);
     }
 }
 
@@ -4850,3 +4850,33 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searc
         margin-bottom: 30px;
     }
 }
+
+//back to top 
+.cd-top {
+    background-color: rgba(0,109,167,.8);
+}
+
+//so yellow border doesn't appear on hover
+.blockLink.button {
+    background:none !important;
+}
+
+//breadcrumb branding
+.breadcrumb ul li {
+    font-family: "Oswald", sans-serif;
+}
+
+.breadcrumb ul li a {
+    color:#006DA5;
+}
+
+.breadcrumb {
+    padding: 0;
+    font-size: 18px;
+
+    @media (max-width: 767px){
+        padding: 0;
+        font-size: 16px;
+    }
+}
+
