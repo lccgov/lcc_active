@@ -6,7 +6,7 @@
 //= require active-timetabletabs
 //= require active-initmaps
 //= require google-analytics
-
+//= require google-maps
 
 
 
