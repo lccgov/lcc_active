@@ -4892,3 +4892,19 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searc
 }
 }
 
+@media (min-width: 500px) {
+    ul.date-list li:nth-child(3n+4){
+        clear:left;
+    }
+}
+.dateBox li p {
+    font-size:16px;
+}
+
+.dateBox p span {
+    font-size: 1rem;
+}
+
+.eventDetailsBlockIconVenue:before {
+    display:none;
+}
