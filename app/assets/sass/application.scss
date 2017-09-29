@@ -540,9 +540,9 @@ select.form-control {
     background: #ffffff;
 }
 
-.sectionSix {
+.sectionFive {
     position: relative;
-    background: #ECF0F1 url(../images/background.png) left bottom no-repeat;
+    background: #ffffff url(../images/background-footer.png) center bottom no-repeat;
     padding: 0 0 20px;
 }
 
@@ -1789,6 +1789,7 @@ CENTRE DETAILS
         -webkit-box-shadow: none;
         box-shadow: none;
         background:white;
+        margin-top:0;
 
         .listWebpart{
             h2{
@@ -1830,6 +1831,10 @@ CENTRE DETAILS
                         position: absolute;
                         left: 0;
                         top: 5px;
+                    }
+
+                    [rel=doc].link:after, [rel=external].link:after, [rel=pdf].link:after, a[rel=doc]:after, a[rel=external]:after, a[rel=pdf]:after {
+                        right: -28px;
                     }
                 }
             }
@@ -3524,7 +3529,8 @@ article h3,
 article h4,
 h2.article,
 h3.article,
-h4.article {
+h4.article,
+.sectionOne .col-md-8 h2 {
     color: #79288C;
 }
 
@@ -4878,5 +4884,11 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searc
         padding: 0;
         font-size: 16px;
     }
+}
+
+@media (min-width: 600px) and (max-width: 767px){
+.blockLink a span.info span.secondaryInfo {
+    font-size: .75rem;
+}
 }
 
