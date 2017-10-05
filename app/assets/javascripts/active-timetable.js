@@ -558,6 +558,7 @@
                     self.loadVenues().then(self.loadSessions().done(function () {
                         self.view.loadEvents().done(function () {
                             self.bindData(elementId);
+                            console.log("binding data for element: " + elementId);
                         }
                         );
                     }));

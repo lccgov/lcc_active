@@ -4,17 +4,23 @@
     LCC.Modules = LCC.Modules || {};
     LCC.Sports = LCC.Sports || {};
     
-    LCC.Modules.TimetableTab = function () {
+    LCC.Modules.TimetableTab = function () { 
         this.start = function (element) {
 
             LCC.Sports.TimetableTab = function (webPartZoneIndexId, webPartZoneClientId) {
                 var self = this;
-                self.attributeName = "data-timetablename";
+                self.attributeName = "id";  // only used to get the tab title
                 self.webPartZoneClientId = webPartZoneClientId; // This is actually the div containing the tab ul where the tab items will be written to
                 self.webPartZoneIndexId = webPartZoneIndexId;
-                self.webParts = $('div[' + self.attributeName + ']');
+                self.webParts = $(".tab-pane"); 
 
+                console.log("webparts found: " + self.webParts.length);
 
+                self.insertSpaces = function (input) {
+                    input = input.replace(/([a-z])([A-Z])/g, '$1 $2');
+                    input = input.replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+                    return input;
+                }
 
                 self.renderTabs = function () {
                     var webPartZone = document.getElementById(self.webPartZoneClientId);
@@ -33,8 +39,8 @@
                             var webPartDiv = self.webParts[webpartindex];
 
                             //create the <ul><li><a/></li></ul> tabs.
-                            var webPartTitle = webPartDiv.getAttribute(self.attributeName);
-                            var webPartTitleNoSpaces = webPartTitle.replace(" ", "");
+                            var webPartTitleNoSpaces = webPartDiv.getAttribute(self.attributeName);
+                            var webPartTitle = self.insertSpaces(webPartTitleNoSpaces);
 
                             var liElement = document.createElement("li");
                             var roleAttribute = document.createAttribute("role");
