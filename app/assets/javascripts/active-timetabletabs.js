@@ -100,6 +100,11 @@
                                 //ensure that tabs actually remove the active class when switched
                                 hideTabs();
                                 $(this).tab("show");
+                                var ttname = $(this).text().replace(" ", "");
+                                var tt = LCC.Sports.Timetables[ttname];
+                                if(tt) {
+                                    tt.refreshHeight();
+                                }
                             }
                             return false;
                         });

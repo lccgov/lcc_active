@@ -549,6 +549,37 @@
 
         };
 
+        this.refreshHeight = function() {
+            console.log("If I were a real method I would do something: " + this.view.settings.timeTableId);
+            //setTimeout(function () {
+                
+
+                 var containerName = "#classTimetable" + this.view.settings.timeTableId;
+                 console.log(containerName);
+                 var containerHeight = $(containerName).height();
+                 var timetableDataTable = $("#" + this.view.settings.timeTableId + "-dataTable");
+                 console.log("timetableDataTable:" + timetableDataTable.height());
+                 console.log("containerHeight: " + containerHeight);
+                 var computedHeight = timetableDataTable.height() - 280;
+                 console.log("computedHeight: " + computedHeight);
+                 this.view.resultTableHeight = computedHeight;
+                 //data.heightValue(computedHeight);
+                 console.log("resultTableHeight: " + this.view.resultTableHeight);
+
+                var showMoreContainer = $("#" + this.view.settings.timeTableId + "-showTimetableResults");
+                if(computedHeight > 0) {
+                    $("#" + this.view.settings.timeTableId + "-showTimetableResults").toggle(true);
+                }
+                console.log("Show more visibility: " + showMoreContainer.is(':visible'));
+                
+                $(showMoreContainer).removeClass("active");
+                $(containerName).removeClass("active");
+
+                self.view.resultsLoaded(true);
+
+            //}, 0);
+        }
+
         return {
             bindData: function (elementId) {
                 var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value
@@ -566,6 +597,9 @@
 
 
             },
+            refreshHeight: function () {
+                self.refreshHeight();
+            }, 
             loadEvents: function () {
                 return self.view.loadEvents();
             },
