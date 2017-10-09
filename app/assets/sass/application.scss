@@ -4908,3 +4908,8 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searc
 .eventDetailsBlockIconVenue:before {
     display:none;
 }
+
+ul.accordion li ul{ 
+    @extend .list;
+    @extend .list-bullet;
+}
