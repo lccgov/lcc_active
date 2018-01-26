@@ -1,0 +1,5 @@
+<script>
+    $(document).on('ready', function () {
+if ($('.home-page').length > 0) { 
+ $('.sectionHeader').append(' <video playsinline autoplay muted loop poster="polina.jpg" id="bgvid"><source src="/_catalogs/masterpage/public/leedsgirlscan_subsite/videos/tgc-leeds-stings-dist.webm" type="video/webm"><source src="/_catalogs/masterpage/public/leedsgirlscan_subsite/videos/tgc-leeds-stings-dist.mp4" type="video/mp4"><source src="/_catalogs/masterpage/public/leedsgirlscan_subsite/videos/tgc-leeds-stings-dist.ogv" type="video/ogv">  </video>     <div class="tagline"><p>Find out more</p><a href="#top">		<div class="tagline__anchor"><span><i class="tagline__arrow fa fa-angle-down fa-3x bounce"></i></span></div></a></div> '); }  }); 
+</script>

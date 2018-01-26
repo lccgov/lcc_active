@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,700,800,400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700');
+
+// available variables to change the brand colours as required
+// masterhead.scss
+
+//$head-background: #ffffff;
+
+
+// mainMenu.scss -- responsive icons color
+//$menu-link-color:#337ab7;
+
+
+//base.scss
+
+//$base-background-color:#fff;
+//$base-font-size:18px ;
+$base-font-color:#414141 ;
+$base-link-color:#911F89 ;
+//$base-container-width:1500px ;
+$btn-background-color:#911F89 ;
+$font-primary: 'Montserrat',Arial,Helvetica,sans-serif;
+$font-secondary: 'Montserrat',Arial,Helvetica,sans-serif;
+
+
+$primary-button-background-color:#911F89;
+$outline-button-color:#911F89;
+$outline-button-border-color:#911F89;
+//$secondary-button-background-color:
+
+
+// global used on all partials to get a uniform spacing between elements
+//$base-margin-bottom:1.875em ;
+
+//headerTop
+//$search-link-background:#F3F3F4 ;
+//$search-link:#333 ;
+
+// mainNav.scss
+$main-nav-background:#911F89;
+//$main-nav-link:#fff ;
+
+//footer.scss
+$footer-font-color:#fff ;
+$footer-nav-selected-link:#133E8D ;
+
+// sectionSubsite.scss - socialamedia.scss
+//$section-Background:#efefef ;
+
+//  socialamedia.scss
+//$social-link-color:#337ab7 ;
+
+//  sideNavigation.scss
+//$side-nav-active-background:#133E8D ;
+
+//  carousel.scss
+//$carousel-active-background:#000 ;
+//$carousel-indicators-active-background:#ccc ;
+//$carousel-caption-background: rgba(0,0,0,0.6) ;
+//$carousel-caption-font-color:#fff ;
+
+
+// blocklinks.scss
+
+//$block-link-back:#f6f6f6 ;
+//$block-link-back-hover:#3380A4 ;
+//$promo-group-border:1px solid #fff ; 
+//$promo-group-background:#EDF2F5 ; 
+//$promo-group-li-background:#EDF2F5 ;
+//$promo-group-link-color:#216486 ;
+
+
+//promolist webpart
+//$link-font-color:#fff;
+$span-info-color:#A2AD00;
+$span-info-hover:darken(#A2AD00,10%);
+//$span-info-secondary-color:#fff;
+//$span-arrow-base:darken($span-info-color, 10%);
+//$span-third-info-base:#f6f6f6;
+//$third-info-font-color:#333;
+//$arrow-color:#fff;
+//$contentFontColor:#333;
+//$content-arrow-color:#133E8D;
+//$content-border-color:#ddd;
+
+// section backgrounds
+$sectionHeader-background-color:#911F89;
+$sectionOne-background-color:#fff;
+$sectionTwo-background-color:#fff;
+$sectionThree-background-color:#ecf0f1;
+//$sectionFour-background-color:lighten($base-background-color, 5%) ;
+//$sectionFive-background-color:darken($base-background-color, 5%) ;
+
+//iconlinks
+//$iconLinkIconColor:#FFC82E;
+
+//heroBanner
+//$heroFontBackground:rgba(0, 0, 0, 0.5); 
+//$heroFontcolor:#fff; 
+
+//news
+//$news-button-background: #3498DB ;
+$news-pod-back:#ffffff ;
+$news-pod-border-color:#ddd;
+
+//accordion
+$accordion-color:green;
+//$accordion-border-color:#ECF0F1;
+
+//panel colours
+//$panel-color:#f0f0f0 !important ;
+//$panel-color-secondary:$base-font-color ;
+//$panel-alt-background-color:#753374;
+//$panel-alt-color:#fff !important;
+//$panel-event-date-background-light:#753374;
+//$panel-event-date-background-dark:darken($panel-event-date-background-light,5%);
+//$panel-event-date-color:white;
+
+//$hightlight-color:#753374;
+
+//responsive menu width
+$responsiveMenuWidth:1200px;
+
+//mega-promo
+//$promo-background-color:#F6F7FA !default;
+$promo-arrow-color:#911F89;
+$promo-header-color:#911F89;
+//$promo-secondary-color:#666B76 !default;
+$promo-highlight-background-color:#911F89;
+$promo-highlight-color:#fff;
+//$promo-arrow:"\f054" !default;
+
+//eventwebparts
+$eventsfilter-hightlight-color:#911F89;
+
+@import 'base';
+
+@import '2010-typography-overrides';
+@import 'accordion';
+@import 'a-to-z';
+@import 'block-links';
+@import 'block-quote';
+@import 'brand-colors';
+@import 'carousel';
+//@import 'content-assets'; //subsite only
+@import 'content-link'; //subsite only
+@import 'description-list';
+//@import 'doc-list'; //needs aligning with lcc_doc-list and a.doc within typography - DH
+@import 'events-search-results';
+@import 'events-webparts';
+//@import 'group-promo';
+//@import 'hero-banner';
+//@import 'hero-banner-overlay'; //needs aligning with hero-bnner - RM
+@import 'icon-links';
+@import 'mega-promo';
+//@import 'news';
+//@import 'open-data'; //is it leeds.gov.uk specific? - does it need re-naming- DH
+//@import 'journey-page';
+@import 'phase-banner'; //work needed to have in page beta banner
+//@import 'polaroids'; //subsite only
+//@import 'promo';
+//@import 'promo-list-webpart'; //subsite only
+//@import 'section-subsite'; //subsite only
+@import 'sharepoint-overrides'; 
+//@import 'side-nav'; //needs aligning with side-navigation - DH & RM
+//@import 'survey-webpart'; //is it leeds.gov specific? Relys on where-i-live which should be in the fet but renamed to search-panel - DH
+@import 'url-helper';
+//@import 'webchat';
+
+@import 'heroBanner-lgc';
+
+
+@font-face {
+    font-family: BeryRoman-Normal;
+    src: url('../fonts/BeryRoman-Normal.eot?#iefix') format("embedded-opentype"),
+         url('../fonts/BeryRoman-Normal.woff2') format("woff2"),
+         url('../fonts/BeryRoman-Normal.woff') format("woff"),
+         url('../fonts/BeryRoman-Normal.otf') format("opentype"),
+}
+
+.styled-font{
+    font-family:'BeryRoman-Normal',Arial,Helvetica,sans-serif;
+}
+
+body{
+    font-weight:300;
+}
+
+.header-left{
+    width:100%;
+}
+
+
+
+.sectionHeader {
+    min-height:140px;
+}
+
+.logo {
+    background:url(../images/logo.svg) left center no-repeat;
+    margin: 30px 0;
+    height:80px;
+    width:230px;
+
+  @media screen and (min-width:$responsiveMenuWidth){
+    position: absolute;
+   z-index: 1000;
+  }
+
+
+    
+    &:hover{
+        text-decoration:none;
+    }
+
+
+        @media screen and (max-width:$responsiveMenuWidth){
+          
+        margin: 30px auto;
+ 
+        }
+}
+
+
+
+.sectionOne{
+    position:relative;
+}
+
+
+.header-right {
+    display:none;
+}
+
+// full screen video for homepage
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}
+//End full screen video for homepage
+
+.main-nav{ 
+
+   a{
+    text-transform:uppercase;
+    text-decoration: none;
+    display:block;
+    text-align: center;
+    background:$main-nav-background;
+}
+   
+   @media (min-width: 1200px) { 
+   background:transparent;   
+   position:absolute;
+   width:100%;
+   top:38px;
+  ul{ 
+   width:60%;
+   margin-left:40%;
+   text-align:right;
+
+      
+  li{
+  margin:5px;
+
+
+
+}
+
+}
+}
+}
+
+footer.main .footerGlobal {
+    background: #4d4d4d;
+
+ .container-fluid {
+     padding-top:50px;
+
+    nav ul{
+        text-align: center;
+
+        a{
+            text-decoration:none;
+            font-size:16px;
+            line-height:3em;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+}
+
+@media (max-width: 991px){
+
+footer.main .socialBookmarks ul li:first-of-type {
+   display:inline-block;
+}
+}
+
+
+.content-block{
+    margin:0 auto;
+}
+
+
+.no-pad-left{
+    padding-left:0px;
+}
+
+// styled tabs 
+.filter-tabs{
+max-width:48em;
+margin: 30px auto 70px auto;
+padding:0px;
+
+&:after{
+ content: "";
+  display: table;
+  clear: both;
+}
+
+li{
+    float:left;
+    width:33%;
+
+&.active a, a:focus{
+  color:#a0499d;
+  &:before{
+      border-color:#a0499d;
+  }
+
+  span{
+     color:$hightlight-color;
+  }
+
+ &:after {
+    position: absolute;
+    content: "";
+    bottom: -27px;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/diamond.png?);
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+}    
+
+a{
+
+color:#dfdfdf;
+position:relative;
+display:block;
+text-align:center;
+margin:0 20px;
+text-transform: uppercase;
+font-weight:500;
+text-decoration: none;
+z-index:1;
+
+     @media (max-width: 600px){
+         margin:0 10px;
+     }
+
+&:focus{
+background:transparent !important;
+}
+
+
+
+&:before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top:60px;
+    left: 0;
+    width: 100%;
+    height: 97px;
+    border: 2px solid #dfdfdf;
+
+     @media (max-width: 61.25em){
+         top:30px;
+         height:85px;
+     }
+
+      @media (max-width: 600px){
+         height:60px
+     }
+}
+
+
+
+
+span{
+    display:block;
+    font-size:80px;
+    background: #fff;
+    margin:0 50px;
+    min-width:50%;
+    @media (max-width: 61.25em){
+        font-size:50px;
+        margin:0 20px;
+    }
+    @media (max-width:600px){
+        font-size:35px;
+        margin:0px;
+    }
+
+
+
+}
+
+
+
+
+}
+}
+}
+
+.tab-content ul{
+ margin:0px;
+ padding:0px;
+}
+
+// End styled tabs 
+
+
+.socialBookmarks .spotify:after {
+    content: "\f1bc";
+    font-family: FontAwesome;
+}
+
+
+footer.main .socialBookmarks .facebook:after, footer.main .socialBookmarks .twitter:after, footer.main .socialBookmarks .youtube:after, footer.main .socialBookmarks .email:after, footer.main .socialBookmarks .instagram:after, footer.main .socialBookmarks .flickr:after, footer.main .socialBookmarks .spotify:after {
+    font-family: FontAwesome;
+    font-size: 20px;
+    border-radius: 0;
+    width: 42px;
+    height: 42px;
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid #999;
+    color: #fff;
+}
+
+.tagline{
+    text-align:center;
+    color:#fff;
+    position:absolute;
+    top:60vh;
+    width:100%;
+    text-transform:uppercase;
+
+    p{
+        margin-bottom:0px;
+    }
+
+    span {
+
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: baseline;
+    zoom: 1;
+    position: relative;
+    padding: 0 10px;
+
+    .tagline__arrow{
+        color:#c344ba
+    }
+
+    
+    &:before, &:after {
+    content: '';
+    display: block;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    border-top: 2px solid #fff;
+}
+
+    &:before{
+    left:-100px;
+    }
+
+    
+    &:after{
+    left:58px;
+    }
+}
+}
+
+.panel.panel-border {
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.eventsFilterType input.form-control, .eventsFilterType select, .venuesFilterType input.form-control, .venuesFilterType select {
+    width:100% !important;
+    border: 1px solid #e0e0e0;
+}
+
+
+.ms-core-listMenu-horizontalBox > .ms-core-listMenu-root > .ms-listMenu-editLink a {
+   position:absolute;
+}

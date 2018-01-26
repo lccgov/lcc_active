@@ -7,6 +7,7 @@ var settings;
 var rmdir = require('rmdir');
 var rename = require("gulp-rename");
 var packageName = require('root-require')('package.json').name;
+var packageVersion = require('root-require')('package.json').version;
 var util = require('util');
 var htmlreplace = require('gulp-html-replace');
 var uglify = require('gulp-uglify');
@@ -25,6 +26,9 @@ var ignore = require("gulp-ignore")
 var metadata = require('./metadata.json');
 var prompt = require('gulp-prompt');
 var Uuid = require('uuid');
+
+var tsc = require('gulp-typescript');
+var tslint = require('gulp-tslint');
 
 var env = new Mincer.Environment();
 env.appendPath('app/assets/javascripts');
@@ -46,9 +50,16 @@ gulp.task('clean:dist', (done) => {
     });
 });
 
+var tsProject = tsc.createProject("tsconfig.json");
+gulp.task('compile:typescript', ['sync:lcc_frontend_toolkit'], (done) => {
+  return gulp.src(['./app/assets/ts/**/*.ts'])
+    .pipe(tsProject())
+    .pipe(gulp.dest('app/assets/javascripts/compiled'))
+});
+
 //Sync assets to public folder excluding SASS files and JS
 gulp.task('sync:assets', ['clean:dist'], (done) => {
-    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/*_subsite/sass/**', '!app/assets/webparts/**'], './dist/_catalogs/masterpage/public', {
+    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/ts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/**/*.ihtml', '!app/assets/*_subsite/sass/**', '!app/assets/webparts/**'], './dist/_catalogs/masterpage/public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
             updateAndDelete: false
@@ -57,19 +68,8 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
     }).catch((err) => { done(err);})
 });
 
-//Sync extra stuff from the app to the dist folder assets
-gulp.task('sync:extras', ['sync:assets'], (done) => {
-    syncy(['app/**/*', '!app/assets/**',], './dist', {
-            ignoreInDest: '**/stylesheets/**',
-            base: 'app',
-            updateAndDelete: false
-        }).then(() => { 
-            done();
-    }).catch((err) => { done(err);})
-});
-
 //Sync lcc_frontend_toolkit to lcc_modules to be used for SASS partial compilation
-gulp.task('sync:lcc_frontend_toolkit', ['sync:extras'], (done) => {
+gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
             updateAndDelete: true
@@ -80,11 +80,20 @@ gulp.task('sync:lcc_frontend_toolkit', ['sync:extras'], (done) => {
 
 //Sync app/assets/javascripts/application.js to dist/_catalogs/masterpages/public/javascripts
 //Use mince to add required js files
-gulp.task('sync:javascripts', ['sync:lcc_frontend_toolkit'], (done) => {
+gulp.task('sync:javascripts', ['compile:typescript'], (done) => {
+
+    function createErrorHandler(name) {
+        return function (err) {
+        console.error('Error from ' + name + ' in compress task', err.toString());
+        };
+    }
+
     return gulp.src('app/assets/javascripts/application.js')
         .pipe(mince(env))
+        .on('error', createErrorHandler('mince'))
         //don't uglify if gulp is ran with '--debug'
         .pipe(gutil.env.debug ? gutil.noop() : uglify({preserveComments: 'all'}))
+        .on('error', createErrorHandler('uglify'))
         .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
 });
 
@@ -148,6 +157,11 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
 var replacements = {};
 
 replacements.css =  util.format('/_catalogs/masterpage/public/stylesheets/%s.css?rev=%s', packageName.replace(/_/g, '-'), Uuid());
+var footerPath = 'app/assets/footer.ihtml';
+if(fileExists(footerPath)) {
+    var footerSource = fs.readFileSync(footerPath, "utf8");
+    replacements.footerScript = footerSource;
+}
 
 //Update app css ref and rename master
 gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoint_views'], (done) => {
@@ -197,8 +211,15 @@ gulp.task('sync:subsites_master', ['sass:subsites'], (done) => {
     return gulp.src('app/assets/*_subsite/', ['!app/assets/*_subsite/**/*.*'])
         .pipe(foreach(function(stream, folder) {  
             var subsiteName = folder.path.split(path.sep).pop();
+            
             var replacements = {};
             replacements.css =  util.format('/_catalogs/masterpage/public/%s/stylesheets/application.css', subsiteName);
+
+            var footerPath = [folder.path, path.sep, 'footer.ihtml'].join('');
+            if(fileExists(footerPath)) {
+                var footerSource = fs.readFileSync(footerPath, "utf8");
+                replacements.footerScript = footerSource;
+            }
 
             if(_.includes(manifest.footerSubsites, subsiteName))
             {
@@ -294,5 +315,5 @@ gulp.task('sp-upload', ['prompt'], (done) => {
     );
 });
 
-gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:extras', 'sync:lcc_frontend_toolkit', 'sync:javascripts', 'sync:lcc_sharepoint_toolkit_webparts', 'sync:lcc_sharepoint_toolkit_displaytemplates', 'sync:lcc_sharepoint_toolkit_xslstylesheets', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_stylesheets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass', 'sass:subsites', 'sync:subsites_master']);
+gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'compile:typescript', 'sync:javascripts', 'sync:lcc_sharepoint_toolkit_webparts', 'sync:lcc_sharepoint_toolkit_displaytemplates', 'sync:lcc_sharepoint_toolkit_xslstylesheets', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_stylesheets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass', 'sass:subsites', 'sync:subsites_master']);
 gulp.task('upload',  ['default', 'sp-upload']);
