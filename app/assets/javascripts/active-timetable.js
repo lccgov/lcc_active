@@ -30,7 +30,7 @@
 
         this.view.resultsLoaded = ko.observable(false);
         this.view.resultsCount = ko.observable(0);
-        this.view.resultTableHeight = ko.observable();
+        this.view.resultTableHeight = ko.observable(0);
 
         this.view.filters = ko.observable({});
         this.view.filters.venue = ko.observable("");
@@ -55,6 +55,8 @@
         this.view.inDayViewMode = ko.computed(function () {
             return (window.innerWidth < self.view.settings.phoneWindowWidth);
         });
+
+        //this.tableHeight = ko.computed(self.getTableHeight,this);
 
         //Knockout Extension function which adds a property eventHeight to each event.
         ko.extenders.eventHeight = function (target, optional) {
@@ -412,9 +414,10 @@
                     }
 
                     console.log("loading " + numberOfEventsLoaded + " events");
-                    promise.resolve();
                     self.view.resultsCount(numberOfEventsLoaded);
                     self.view.resultsLoaded(true);
+
+                    promise.resolve();
                 },
                 function (xhr, status, errorthrown) {
                     console.log(xhr, status, errorthrown);
@@ -550,7 +553,6 @@
         };
 
         this.refreshHeight = function() {
-            console.log("If I were a real method I would do something: " + this.view.settings.timeTableId);
             //setTimeout(function () {
                 
 
@@ -562,9 +564,9 @@
                  console.log("containerHeight: " + containerHeight);
                  var computedHeight = timetableDataTable.height() - 280;
                  console.log("computedHeight: " + computedHeight);
-                 this.view.resultTableHeight = computedHeight;
+                 this.view.resultTableHeight(computedHeight);
                  //data.heightValue(computedHeight);
-                 console.log("resultTableHeight: " + this.view.resultTableHeight);
+                 console.log("resultTableHeight: " + this.view.resultTableHeight());
 
                 var showMoreContainer = $("#" + this.view.settings.timeTableId + "-showTimetableResults");
                 if(computedHeight > 0) {
@@ -617,6 +619,13 @@
         }
 
     }
+
+    // ko.utils.extend(LCC.Sports.TimetableControl.prototype, {
+    //     getTableHeight: function () {
+    //         return this.view.resultTableHeight();
+    //     },
+    // });
+    
 
     global.LCC = LCC;
 })(window, jQuery);
