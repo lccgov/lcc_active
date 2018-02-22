@@ -272,6 +272,13 @@
             var eventStart = moment(data.start);
             var eventBookThresholdDate = moment().add(self.view.settings.numberOfDaysToBookThreshold(), 'days');
             var okToBook = (eventStart.isSameOrBefore(eventBookThresholdDate));
+            
+            if (self.view.settings.timeTableName().toLowerCase().indexOf("swim") >= 0)
+            {
+                okToBook = false;    // Don't show the 'Book now' button for entries in the Swimming timetable
+            }
+
+            console.log("okToBook " + okToBook);
             return okToBook;
         }
 
