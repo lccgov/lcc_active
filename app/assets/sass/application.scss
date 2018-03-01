@@ -22,6 +22,7 @@ $btn-background-color:#e7cc26;
 $font-primary: 'Oswald', Helvetica, Arial;
 $font-secondary:'Open Sans', sans-serif; // secondary font
 
+$input-border-color:#E4E8EC;
 
 // global used on all partials to get a uniform spacing between elements
 //$base-margin-bottom:1.875em ;
@@ -386,14 +387,14 @@ select.desktopDropDown::-ms-expand {
 }
 
 select.form-control {
-    background-image: url("../images/select-arrow.png");
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: right;
-    padding-right: 60px;
-    height: 50px;
-    border-radius: 0;
-    border-color: #E4E8EC;
+    background-image: url("../images/select-arrow.png") !important;
+    background-color: #ffffff !important;;
+    background-repeat: no-repeat !important;;
+    background-position: right !important;;
+    padding-right: 60px !important;;
+    height: 50px !important;;
+    border-radius: 0 !important;;
+    border-color: #E4E8EC !important;;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -671,19 +672,23 @@ select.form-control {
 //nav buttons
 .nav-btns {
     margin-top: 15px;
-} 
-
-.nav-btn {
-    width: 47%;
-    margin: 1.5%;
-}
-
-@media (max-width: 767px) {
-    .nav-btns {
+    @media (max-width: 767px) {
         margin-top: 0px;
         padding: 0;
     }
-}
+    .nav-btn {
+        width: 47%;
+        margin: 1.5%;
+        text-align:center;
+        padding: 20px 25px;
+        @media (max-width: 767px) {
+            padding: 10px 15px;
+        }
+        &:before{
+            display:none;
+        }
+    }
+} 
 
 //MAIN MENU
 
@@ -2939,11 +2944,27 @@ input {
 @media only screen and (max-width: 991px){
 .mapToggle a.btn {
     width: 49.9%;
+    float:left;
+    text-align:center;
+    margin-bottom:0;
 }
 }
 
 #filterhide a.btn {
   color:#fff;
+  text-align:center;
+  -webkit-box-shadow: 0 3px 0 darken($base-link-color,10%);
+    -moz-box-shadow: 0 3px 0 darken($base-link-color,10%);
+    box-shadow: 0 3px 0 darken($base-link-color,10%);
+    font-size: 20.9px;
+}
+
+.eventsSearchSort{
+    .pull-right{
+        @media (max-width: 991px) {
+            width:100%;
+        }
+    }
 }
 
 .eventsFilterHeader h2, .venuesFilterHeader h2 {
@@ -4762,6 +4783,7 @@ ul.content li.resultsItemWrapper {
 
 .eventsFilter .btn-group .btn, .eventsFilter .btn.btn-primary, .eventsFilter .input-group-btn .btn, #filterCloseButton .btn {
     color: #fff;
+    margin-bottom: 0;
 }
 
 @media only screen and (max-width: 991px){
@@ -4777,6 +4799,10 @@ ul.content li.resultsItemWrapper {
 
 ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searchLink {
     text-decoration:none;
+}
+
+ul.menu li .main-menu.link, ul.menu li a.main-menu {
+    color:white !important;
 }
 
 @media only screen and (max-width: 700px){
@@ -4871,6 +4897,7 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu,.ms-srch-sb>.ms-srch-sb-searc
 //back to top 
 .cd-top {
     background-color: rgba(0,109,167,.8);
+    color:white !important;
 }
 
 //so yellow border doesn't appear on hover
@@ -4924,3 +4951,26 @@ ul.accordion li ul{
     @extend .list;
     @extend .list-bullet;
 }
+
+.btn-arrow:before, .btn[rel=external]:before {
+    background: transparent;
+}
+
+#eventsFilter{
+    .form-control{
+        width:100% !important;
+        padding-left: 10px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-page .carousel {
+        display: none;
+    }
+} 
