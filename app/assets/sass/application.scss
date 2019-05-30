@@ -677,7 +677,7 @@ select.form-control {
         padding: 0;
     }
     .nav-btn {
-        width: 47%;
+        width: 27%;
         margin: 1.5%;
         text-align:center;
         padding: 20px 25px;
@@ -3181,6 +3181,21 @@ td:last-child .session .sessionInfo {
     margin: 0 0 0 5px !important;
 }
 
+/* START Cancelled events */
+
+li.cancelled {
+    padding: 0px;
+}
+
+li.cancelled p {
+    color: #a94442;
+}
+
+li.cancelled p.cancelled {
+    margin-top: 0px;
+}
+
+/* END Cancelled events */
 
 /*duration*/
 
@@ -4837,6 +4852,10 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu {
 
 .pageNav .nav-tabs>li>.link:hover, .pageNav .nav-tabs>li>a:hover {
     border-bottom: 3px solid transparent;
+}
+
+ul.content li.resultsItemWrapper .resultsItem {
+    margin: 0 0 40px 0;
 }
 
 //style override from _eventswebpart.scss
