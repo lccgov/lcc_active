@@ -3197,6 +3197,18 @@ li.cancelled p.cancelled {
 
 /* END Cancelled events */
 
+/* START Timetable tooltip */
+
+.tooltip-inner a:hover, .tooltip-inner a:focus {
+    color:#00c4e6 !important;
+ }
+    
+ .tooltip-inner a:link, .tooltip-inner a:visited {
+    color:#00a6e6;
+}
+
+/* END Timetable tooltip */
+
 /*duration*/
 
 .oneHour {

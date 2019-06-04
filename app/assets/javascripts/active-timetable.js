@@ -222,7 +222,7 @@
             var selector = document.getElementById(event.currentTarget.lastElementChild.id);
             $(selector).show();
             var controlTooltips = $('[data-toggle="tooltip"]');
-            $(controlTooltips).tooltip({ delay: { "show": 300, "hide": 100 } });
+            $(controlTooltips).tooltip({ delay: { "show": 300, "hide": 3000 } });
             return false;
         };
 
