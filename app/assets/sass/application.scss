@@ -4866,9 +4866,44 @@ ul.menu li .main-menu.link, ul.menu li a.main-menu {
     border-bottom: 3px solid transparent;
 }
 
+/* START Quick links */
 ul.content li.resultsItemWrapper .resultsItem {
-    margin: 0 0 40px 0;
+   /* margin: 0 0 40px 0;*/
+   padding: 0px !important;
 }
+
+
+.resultsItemDetails {
+    padding: 20px;
+}
+
+.resultsItemLinks p {
+    padding: 0;
+}
+
+.resultsItemLinks p a:hover, .resultsItemLinks p a:focus {
+    background: #ddd;
+    color: #1E2A34 !important;
+}
+
+.resultsItemLinks p a {
+    padding: 20px 0px;
+    background: #006DA5;
+    color: #fff !important;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+}
+
+.resultsItemLinks p a .glyphicon {
+    color: #fff;
+    top: 1px;
+    padding: 4px;
+    position: relative;
+}
+
+/* END Quick links */
+
 
 //style override from _eventswebpart.scss
 
