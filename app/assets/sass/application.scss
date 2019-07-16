@@ -2940,6 +2940,17 @@ input {
     }
 }
 
+.iconLinks.sideLinks {
+    transform: scale(0.6, 0.6);
+    border: 2px solid #006DA5;
+    border-bottom: 3px solid #0D2B62;
+    background: #ECF0F1;
+}
+
+.iconLinks.sideLinks li {
+    border: 1px solid #DEDEDD;
+}
+
 
 @media only screen and (max-width: 991px){
 .mapToggle a.btn {

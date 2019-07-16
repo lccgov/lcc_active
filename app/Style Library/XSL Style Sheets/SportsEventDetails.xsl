@@ -32,10 +32,13 @@
         </div>
         <!-- End MainContentArticle -->
         <div class="dateBox">
-          <h2><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>When</h2>
+          <h2><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>When?</h2>
           <ul class="date-list">
             <xsl:for-each select="s:EventDetailsModel/s:Occurrences/s:OccurrenceModel">
               <li>
+                <xsl:if test="s:Cancelled = 'true'">
+                    <xsl:attribute name="class">session cancelled</xsl:attribute>
+                </xsl:if>
                 <h2>
                   <span>
                     <xsl:value-of select="ms:format-date(s:Start,'dddd')" />
@@ -49,6 +52,9 @@
                   <xsl:value-of select="ms:format-date(s:End,'ddd d/MM/yyyy')"/>&#160;
                   <xsl:value-of select="ms:format-time(s:End,'h:mm tt')"/>
                 </p>
+                <xsl:if test="s:Cancelled = 'true'">
+                  <p class="cancelled">Cancelled</p>
+                </xsl:if>
               </li>
             </xsl:for-each>
           </ul>
