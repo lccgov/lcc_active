@@ -44,7 +44,7 @@
     "lcc_templates_sharepoint": "^1.1.105",
     "lodash": "^4.17.2",
     "mincer": "^1.5.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "rmdir": "^1.2.0",
     "root-require": "^0.3.1",
     "syncy": "^2.0.1",
