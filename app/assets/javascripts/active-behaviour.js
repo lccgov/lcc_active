@@ -1,7 +1,7 @@
 (function ($) {
 
     //header
-    $('.header-right').append('<div class="col-xs-12 nav-btns"><a target="_blank" rel="external" href="https://www.fastdd.co.uk/platinum/start.php?c=Active-Leeds" class="btn btn-lg pull-right btn-secondary nav-btn"><span class="sr-only">External link opens in new window </span>Join Today</a><a target="_blank" rel="external" href="https://sport.leeds.gov.uk/onlinebookings" class="btn btn-lg pull-right btn-main nav-btn"><span class="sr-only">External link opens in new window </span>Book Online</a></div>');
+    $('.header-right').append('<div class="col-xs-12 nav-btns"><a target="_blank" rel="external" href="https://www.efocus-net.com/LEEDS_CITY_COUNCIL/Sales_Focus/?slink=1" class="btn btn-lg pull-right btn-main nav-btn"><span class="sr-only">External link opens in new window </span>Enquire Now</a><a target="_blank" rel="external" href="https://www.fastdd.co.uk/platinum/start.php?c=Active-Leeds" class="btn btn-lg pull-right btn-secondary nav-btn"><span class="sr-only">External link opens in new window </span>Join Today</a><a target="_blank" rel="external" href="https://sport.leeds.gov.uk/onlinebookings" class="btn btn-lg pull-right btn-main nav-btn"><span class="sr-only">External link opens in new window </span>Book Online</a></div>');
     
     //image gallery
     $("#gallery li img").hover(function () {
